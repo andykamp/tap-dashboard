@@ -25,13 +25,18 @@ export default async function Page(_props: {
         label: "Total Events (7 days)",
         value: "0"
       },
+      {
+        label: "Total Events (7 days)",
+        value: "0"
+      },
     ];
 
   return (
     <main>
-      <div className="relative overflow-hidden isolate">
-        <div className="border-b">
-          <div className="flex flex-col items-start justify-between h-16 px-4 py-4 border-b gap-x-8 gap-y-4 sm:flex-row sm:items-center sm:px-6 lg:px-8">
+      <div className="relative overflow-hidden">
+        <div>
+
+          <section className="flex items-start justify-between h-16 border-b gap-x-8 gap-y-4 px-4 sm:px-6 py-4 lg:px-8">
             <div>
               <div className="flex items-center gap-x-3 ">
                 <h1 className="flex text-base gap-x-2 leading-7">
@@ -41,13 +46,14 @@ export default async function Page(_props: {
                 </h1>
               </div>
             </div>
-            <div className="flex-none order-first px-2 py-1 text-xs font-medium rounded-full bg-rose-400/10 text-rose-400 ring-1 ring-inset ring-rose-400/30 sm:order-none">
+            <div className="px-2 py-1 text-xs font-medium rounded-full bg-rose-400/10 text-rose-400 ring-1 ring-inset ring-rose-400/30">
               {tenant.plan}
             </div>
-          </div>
-          <dl
+          </section>
+
+          <section
             className={cn(
-              "grid grid-cols-1  bg-zinc-700/10 sm:grid-cols-2 border-b h-32",
+              "grid grid-cols-2 bg-zinc-700/10 border-b",
               {
                 "lg:grid-cols-2": stats.length === 2,
                 "lg:grid-cols-3": stats.length === 3,
@@ -59,8 +65,8 @@ export default async function Page(_props: {
               <div
                 key={stat.label}
                 className={cn(
-                  statIdx % 2 === 1 ? "sm:border-l" : statIdx === 2 ? "lg:border-l" : "",
-                  "flex items-baseline flex-wrap justify-between gap-y-2 gap-x-4 border-t px-4 py-10 sm:px-6 lg:border-t-0 xl:px-8",
+                  statIdx % 2 === 1 ? "border-l" : statIdx === 2 ? "lg:border-l" : "",
+                  "flex items-baseline flex-wrap justify-between gap-y-2 gap-x-4 border-t px-4 sm:px-6 xl:px-8 py-10 lg:border-t-0 ",
                 )}
               >
                 <dt className="text-sm font-medium leading-6 ">{stat.label}</dt>
@@ -69,7 +75,8 @@ export default async function Page(_props: {
                 </dd>
               </div>
             ))}
-          </dl>
+          </section>
+
         </div>
       </div>
 

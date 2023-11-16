@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
 
 } from "@/components/ui/dropdown-menu";
-import { VercelLogoIcon, CaretSortIcon } from "@radix-ui/react-icons";
+import { VercelLogoIcon, CaretSortIcon, PersonIcon } from "@radix-ui/react-icons";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -49,20 +49,24 @@ export const Profile: React.FC<Props> = (): JSX.Element => {
       {loading ? (
         <Loading />
       ) : (
-        <DropdownMenuTrigger className="flex items-center justify-between w-full px-2 py-1 rounded gap-4 hover:bg-zinc-100 dark:hover:bg-zinc-700">
-          <div className="flex items-center justify-start w-full gap-4 ">
-            <Avatar>
-              {user?.profileImageUrl ? (
-                <AvatarImage src={user.profileImageUrl} alt={user.username ?? "Profile picture"} />
-              ) : null}
-              <div className="flex items-center justify-center w-8 h-8 overflow-hidden border rounded-md bg-zinc-100 border-zinc-500 text-zinc-700">
-                {(currentOrg?.slug ?? user?.username ?? "").slice(0, 2).toUpperCase() ?? "P"}
-              </div>
-            </Avatar>
-            <span>{currentOrg?.name ?? "Personal"}</span>
+        <DropdownMenuTrigger className="lg:w-full">
+          <PersonIcon className="block lg:hidden" />
+          <div className="hidden lg:flex items-center justify-between w-full px-2 py-1 rounded gap-4 hover:bg-zinc-100 dark:hover:bg-zinc-700">
+
+            <div className="flex items-center justify-start w-full gap-4 ">
+              <Avatar>
+                {user?.profileImageUrl ? (
+                  <AvatarImage src={user.profileImageUrl} alt={user.username ?? "Profile picture"} />
+                ) : null}
+                <div className="flex items-center justify-center w-8 h-8 overflow-hidden border rounded-md bg-zinc-100 border-zinc-500 text-zinc-700">
+                  {(currentOrg?.slug ?? user?.username ?? "").slice(0, 2).toUpperCase() ?? "P"}
+                </div>
+              </Avatar>
+              <span>{currentOrg?.name ?? "Personal"}</span>
+            </div>
+            {/* <PlanBadge plan={currentTeam?.plan ?? "DISABLED"} /> */}
+            <CaretSortIcon className="w-4 h-4" />
           </div>
-          {/* <PlanBadge plan={currentTeam?.plan ?? "DISABLED"} /> */}
-          <CaretSortIcon className="w-4 h-4" />
         </DropdownMenuTrigger>
       )}
       <DropdownMenuContent className="w-full lg:w-56" align="end" forceMount>

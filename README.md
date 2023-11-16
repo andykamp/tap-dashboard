@@ -12,3 +12,7 @@
 ![Preview4](./preview4.png)
 ![Preview5](./preview5.png)
 ![Preview6](./preview6.png)
+
+
+## Todo
+- make sidebar collapsable with animation

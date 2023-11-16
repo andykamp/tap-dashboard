@@ -1,4 +1,5 @@
-import { Sidebar } from "@/components/sidebar";
+import { SidebarDesktop } from "@/components/sidebar-desktop";
+import { SidebarMobile } from "@/components/sidebar-mobile";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,7 +15,8 @@ export default async function Layout({ children }: LayoutProps) {
 
   return (
     <div>
-      <Sidebar channels={channels.map((c) => ({ name: c.name }))} />
+      <SidebarDesktop channels={channels.map((c) => ({ name: c.name }))} />
+      <SidebarMobile channels={channels.map((c) => ({ name: c.name }))} />
 
       <div className=" lg:pl-72">{children}</div>
     </div>
