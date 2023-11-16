@@ -10,7 +10,7 @@ export default async function Page(props: { params: { tenantSlug: string; channe
       <Header
         channel={{ name: channelName }}
         actions={[
-          <Button>
+          <Button key="CreateWebhook">
             Create webook
           </Button>
         ]}

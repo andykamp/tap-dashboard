@@ -31,7 +31,7 @@ export const DefaultPage: React.FC<Props> = ({ channel }) => {
       <Header
         channel={{ name: channel.name }}
         actions={[
-          <DropdownMenu>
+          <DropdownMenu key="dropdown">
             <DropdownMenuTrigger asChild>
               <Button variant="ghost">
                 <HamburgerMenuIcon className="w-5 h-5" />

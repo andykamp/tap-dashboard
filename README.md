@@ -16,3 +16,5 @@
 
 ## Todo
 - make sidebar collapsable with animation
+- create a profile page
+- fix text style and fonts

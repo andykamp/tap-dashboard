@@ -6,7 +6,7 @@ export default async function Page(_props: { params: { tenantSlug: string } }) {
   return (
     <div className="">
         <PageHeader title="ApiKeys" actions={[
-          <Button>
+          <Button key="CreateKey">
             Create Key
           </Button>
         ]} />

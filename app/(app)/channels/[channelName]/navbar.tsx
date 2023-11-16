@@ -24,7 +24,7 @@ export const Navbar: React.FC<Props> = ({ channelName }) => {
     <NavigationMenu className="flex justify-start h-16 px-4">
       <NavigationMenuList>
         {items.map((item) => (
-          <NavigationMenuItem>
+          <NavigationMenuItem key={item.name}>
             <Link href={item.href} legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 {item.name}
